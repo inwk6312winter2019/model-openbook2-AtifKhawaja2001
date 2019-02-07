@@ -30,8 +30,6 @@ def street(fout):
 def hist(fout):
 	d = {}
 	l = []
-	import string
-	l_strnum = []
 	l_maint = []
 	for line in fout:
 		line1 = line.split(',')
