@@ -7,6 +7,9 @@ def read_file(file):
 	print('\n')
 	fout.seek(0)
 	own(fout)
+	print('\n')
+	fout.seek(0)
+	street_class(fout)
 
 def street(fout):
 	l_strname = []
@@ -75,5 +78,34 @@ def own(fout):
 	for pair in t:
 		l2.append(pair)
 	print("Street names and their unique owners = ",l2)
+
+
+def street_class(fout):
+	l_stclass = []
+	l_strname = []
+	l = []
+	l1 = []
+	l2 = []
+	t = ()
+	for line in fout:
+		line1 = line.split(',')
+		l_stclass.append(line1[10:11])
+		l_strname.append(line1[4:5])
+
+#This code below combines a list of lists into one list
+	for list in l_stclass:
+		for word in list:
+			l.append(word)
+
+	for list in l_strname:
+		for word in list:
+			l1.append(word)
+
+#This code below creates a list of tuples where each tuple is a combinations of street name and its unique owner
+	t = zip(l1,l)
+	for pair in t:
+		l2.append(pair)
+	print("Street names and their classes = ",l2)
+
 
 read_file('Street_Centrelines.csv')
